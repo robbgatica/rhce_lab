@@ -1,0 +1,12 @@
+#!/bin/bash
+hostnamectl set-hostname ${host_id}
+echo '192.168.1.50 ansible1' >> /etc/hosts
+echo '192.168.1.51 ansible2' >> /etc/hosts
+echo '192.168.1.52 ansible3' >> /etc/hosts
+echo '192.168.1.53 ansible4' >> /etc/hosts
+dnf install -y python39
+alternatives --set python /usr/bin/python3
+python3 -m pip install ansible
+mkdir /etc/ansible
+chmod 0400 /home/ec2-user/id_rsa
+
