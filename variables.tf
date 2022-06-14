@@ -55,6 +55,6 @@ variable "node_ips" {
 
 variable "id_rsa" {
   type    = string
-  default = "~/Desktop/terraform/aws/ec2/id_rsa"
+  default = "~/terraform/keys/ec2/id_rsa"
 }
 

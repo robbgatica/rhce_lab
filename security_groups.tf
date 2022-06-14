@@ -1,13 +1,6 @@
-/*
-************************************************************
-*                                                          |
-*                     Security Groups                      |
-*                                                          |
-************************************************************
-*/
+### Security Groups ###
 
-
-# create security group for 8080/tcp from * and 22/tcp from IP in us-east-1
+# create security group for control node (ssh and all traffic from peered VPC
 resource "aws_security_group" "control-sg" {
   provider    = aws.region-control
   name        = "control-sg"

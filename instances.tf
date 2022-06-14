@@ -2,17 +2,17 @@
 resource "aws_key_pair" "control-key" {
   provider   = aws.region-control
   key_name   = "control"
-  public_key = file("~/Desktop/terraform/aws/ec2/id_rsa.pub")
+  public_key = file("~/terraform/keys/ec2/id_rsa.pub")
 }
 
-# create key pair for logging into ec2 in us-east-1
+# create key pair for logging into ec2 in us-east-2
 resource "aws_key_pair" "nodes-key" {
   provider   = aws.region-nodes
   key_name   = "nodes"
-  public_key = file("~/Desktop/terraform/aws/ec2/id_rsa.pub")
+  public_key = file("~/terraform/keys/ec2/id_rsa.pub")
 }
 
-# create and bootstrap ec2 instance in us-east-1
+# create Ansible control node in us-east-1
 resource "aws_instance" "control" {
   provider                    = aws.region-control
   ami                         = var.rhel-east1
@@ -45,7 +45,7 @@ resource "aws_instance" "control" {
 
 }
 
-# create and bootstrap ec2 instance in us-east-2
+# create managed nodes in us-east-2
 resource "aws_instance" "nodes-ohio" {
   provider                    = aws.region-nodes
   count                       = var.nodes-count

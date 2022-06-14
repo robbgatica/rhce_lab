@@ -1,10 +1,4 @@
-/*
-************************************************************
-*                                                          |
-*                         VPCs                             |
-*                                                          |
-************************************************************
-*/
+### VPCs ###
 
 # create vpc in us-east-1
 resource "aws_vpc" "vpc-control" {
@@ -28,13 +22,7 @@ resource "aws_vpc" "vpc-nodes" {
   }
 }
 
-/*
-************************************************************
-*                                                          |
-*                         IGWs                             |
-*                                                          |
-************************************************************
-*/
+### IGWs ###
 
 # create IGW in us-east-1
 resource "aws_internet_gateway" "igw-east1" {
@@ -54,13 +42,7 @@ data "aws_availability_zones" "azs" {
   state    = "available"
 }
 
-/*
-************************************************************
-*                                                          |
-*                         Subnets                          |
-*                                                          |
-************************************************************
-*/
+### Subnets ###
 
 # create subnet in us-east-1
 resource "aws_subnet" "subnet_va_1" {
@@ -77,13 +59,7 @@ resource "aws_subnet" "subnet_ohio_1" {
   cidr_block = "192.168.1.0/24"
 }
 
-/*
-************************************************************
-*                                                          |
-*                      VPC Peering                         |
-*                                                          |
-************************************************************
-*/
+### VPC Peering ###
 
 # create peering connection request from us-east-1
 resource "aws_vpc_peering_connection" "useast1-useast2" {
@@ -99,13 +75,7 @@ resource "aws_vpc_peering_connection_accepter" "accept-peering" {
   auto_accept               = true
 }
 
-/*
-************************************************************
-*                                                          |
-*                      Routing Table                       |
-*                                                          |
-************************************************************
-*/
+### Routing tables ###
 
 # create route table in us-east-1
 resource "aws_route_table" "internet-route" {
