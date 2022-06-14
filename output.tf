@@ -1,3 +1,5 @@
+# print public IP to console
+
 output "control-node-public-ip" {
   value = aws_instance.control.public_ip
 }

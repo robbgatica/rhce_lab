@@ -1,4 +1,4 @@
-### VPCs ###
+#### VPCs ####
 
 # create vpc in us-east-1
 resource "aws_vpc" "vpc-control" {

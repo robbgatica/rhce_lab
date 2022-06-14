@@ -12,7 +12,7 @@ resource "aws_key_pair" "nodes-key" {
   public_key = file("~/terraform/keys/ec2/id_rsa.pub")
 }
 
-# create Ansible control node in us-east-1
+# Create Ansible control node in us-east-1
 resource "aws_instance" "control" {
   provider                    = aws.region-control
   ami                         = var.rhel-east1
@@ -45,7 +45,7 @@ resource "aws_instance" "control" {
 
 }
 
-# create managed nodes in us-east-2
+# Create managed nodes in us-east-2
 resource "aws_instance" "nodes-ohio" {
   provider                    = aws.region-nodes
   count                       = var.nodes-count

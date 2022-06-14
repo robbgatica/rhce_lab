@@ -1,6 +1,6 @@
 ### Security Groups ###
 
-# create security group for control node (ssh and all traffic from peered VPC
+# Create security group for control node (ssh and all traffic from peered VPC
 resource "aws_security_group" "control-sg" {
   provider    = aws.region-control
   name        = "control-sg"
@@ -28,7 +28,7 @@ resource "aws_security_group" "control-sg" {
   }
 }
 
-# create security group for 22 traffic from IP in us-east-2
+# Create security group for 22 traffic from IP in us-east-2
 resource "aws_security_group" "nodes-sg-ohio" {
   provider = aws.region-nodes
   name     = "nodes-sg-ohio"
